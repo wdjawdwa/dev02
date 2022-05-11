@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--映射，namespace命名空间，必须和接口的完整包名.类名完全一致-->
+<mapper namespace="com.tyf.dao.StudentDao">
+    <!--添加数据-->
+    <insert id="insert">
+        insert into student(name, age, gender, birthday, info) values (#{name}, #{age}, #{gender}, #{birthday}, #{info})
+    </insert>
+    <!--删除数据-->
+    <delete id="delete" parameterType="com.tyf.entity.Student">
+        delete from student where id =#{id}
+    </delete>
+    <!--修改数据-->
+    <update id="update" parameterType="com.tyf.entity.Student">
+        update student set info=#{info} where id =#{id}
+    </update>
+    <!--查询全部-->
+    <select id="findAll" parameterType="com.tyf.entity.Student" resultType="com.tyf.entity.Student">
+        select * from student
+    </select>
+    <!--查询单个-->
+    <select id="findById" resultType="com.tyf.entity.Student">
+        select * from student where id =#{id}
+    </select>
+    <!--模糊查询-->
+    <select id="findByKeyword" resultType="com.tyf.entity.Student" parameterType="com.tyf.entity.Student">
+        select * from student where name like #{keyword}
+    </select>
+    <!--主键回填-->
+    <!--useGeneratedKeys:默认是false，设置为true开启主键回填-->
+    <!--keyProperty:主键回填的位置，一般都是id-->
+    <insert id="getIncrement" useGeneratedKeys="true" keyProperty="id" parameterType="com.tyf.entity.Student">
+        insert into student(name, age, gender, birthday, info) values (#{name}, #{age}, #{gender}, #{birthday}, #{info})    </insert>
+</mapper>
