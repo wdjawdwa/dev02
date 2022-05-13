@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--映射，namespace命名空间，必须和接口的完整包名.类名完全一致-->
+<mapper namespace="com.tyf.dao.SubjectDao">
+    <resultMap id="findAllMap" type="com.tyf.entity.Subject">
+        <id property="id" column="sub_id"/>
+        <result property="name" column="sub_name"/>
+
+        <!--association和collection都可以通过resultMap引用内部或者外部的resultMap-->
+        <collection resultMap="com.tyf.dao.StudentDao.findAllMap" property="students" ofType="com.tyf.entity.Student" javaType="List">
+            <id column="id" property="id"/>
+            <result column="name" property="name"/>
+            <result column="age" property="age"/>
+            <result column="gender" property="gender"/>
+            <result column="birthday" property="birthday"/>
+            <result column="info" property="info"/>
+        </collection>
+    </resultMap>
+
+    <select id="findAll" resultMap="findAllMap">
+        select stu.* , sub.id as sub_id , sub.name as sub_name
+        from subject sub
+        inner join student_ref_subject srs
+        on srs.sub_id =sub.id
+        inner join student stu
+        on stu.id =srs.stu_id
+    </select>
+</mapper>
