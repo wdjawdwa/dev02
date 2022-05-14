@@ -1,0 +1,14 @@
+package com.tyf.dao.impl;
+
+import com.tyf.dao.UserDao;
+
+/**
+ * @author tyf
+ * @create 2022-03-13-18:12
+ */
+public class UserDaoOracleImpl implements UserDao {
+    @Override
+    public void useDateBase() {
+        System.out.println("使用Oracle连接数据库");
+    }
+}
