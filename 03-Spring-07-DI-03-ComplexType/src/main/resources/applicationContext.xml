@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="car" class="com.tyf.entity.Car">
+        <property name="color" value="green"/>
+    </bean>
+
+    <bean id="complexType" class="com.tyf.entity.ComplexType">
+        <property name="objects">
+            <array>
+                <value>123</value>
+                <value>易烊千玺</value>
+                <value>true</value>
+                <value>3.14</value>
+                <value>帅</value>
+            </array>
+        </property>
+
+        <property name="list">
+            <list>
+                <value>雪碧</value>
+                <value>可乐</value>
+                <value>冰红茶</value>
+                <value>六个核弹</value>
+            </list>
+        </property>
+
+        <property name="set">
+            <set>
+                <value>15</value>
+                <value>22</value>
+            </set>
+        </property>
+
+        <property name="map">
+            <map>
+                <entry key="person" value="易烊千玺"/>
+                <entry key="car" value-ref="car"/>
+            </map>
+        </property>
+    </bean>
+</beans>
