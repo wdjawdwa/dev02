@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.tyf</groupId>
-    <artifactId>_05-SpringMVC-11-FileDownload</artifactId>
+    <artifactId>05-SpringMVC-12-Exception</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>05-SpringMVC-11-FileDownload</name>
+    <name>05-SpringMVC-12-Exception</name>
     <packaging>war</packaging>
 
     <properties>
@@ -23,9 +23,9 @@
             <version>5.3.6</version>
         </dependency>
         <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.6</version>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
